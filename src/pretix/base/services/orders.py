@@ -1345,6 +1345,13 @@ def _perform_order(event: Event, payment_requests: List[dict], position_ids: Lis
             email_attendees = event.settings.mail_send_order_free_attendee
             email_attendees_template = event.settings.mail_text_order_free_attendee
             subject_attendees_template = event.settings.mail_subject_order_free_attendee
+
+        # elif order.paymentprovider.settings.dontsendmail
+        # don't send the fucking mail at all
+
+        # elif order.paymentprovider.settings.delaymail
+        # check after n minutes if order.STATUS_PENDING
+        # and only then send the fucking mail. If PAID, EXPIRED, CANCELLED, REFUNDED then don't send the fucking mail.
         else:
             email_template = event.settings.mail_text_order_placed
             subject_template = event.settings.mail_subject_order_placed
