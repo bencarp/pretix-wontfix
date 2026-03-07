@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 13:19+0000\n"
+"POT-Creation-Date: 2026-02-28 13:24+0000\n"
 "PO-Revision-Date: 2024-12-25 23:27+0000\n"
 "Last-Translator: Aarni Heinonen <vamoosev@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://translate.pretix.eu/"
@@ -233,7 +233,6 @@ msgid "Comment"
 msgstr "评论"
 
 #: pretix/api/serializers/cart.py:168 pretix/api/serializers/order.py:1502
-#, python-brace-format
 msgid "The product \"{}\" is not assigned to a quota."
 msgstr "产品“{}”没有关联到配额。"
 
@@ -385,12 +384,10 @@ msgid "The selected seat \"{seat}\" is not available."
 msgstr "所选的座位{seat}无效。"
 
 #: pretix/api/serializers/order.py:1489 pretix/api/serializers/order.py:1496
-#, python-brace-format
 msgid "The product \"{}\" is not available on this date."
 msgstr "商品 “{}” 在这个日期不可用。"
 
 #: pretix/api/serializers/order.py:1511 pretix/api/views/cart.py:200
-#, python-brace-format
 msgid ""
 "There is not enough quota available on quota \"{}\" to perform the operation."
 msgstr "配额“{}”上没有足够的配额可用来执行操作。"
@@ -1243,7 +1240,7 @@ msgid "Ticket link"
 msgstr "票证布局"
 
 #: pretix/base/datasync/sourcefields.py:578
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Check-in list"
 msgid "Check-in datetime on list {}"
 msgstr "签入列表"
@@ -6548,7 +6545,6 @@ msgid "Answer"
 msgstr "答案"
 
 #: pretix/base/models/items.py:1985
-#, python-brace-format
 msgid "The identifier \"{}\" is already used for a different option."
 msgstr "标识符“{}”已用于其他选项。"
 
@@ -7205,7 +7201,6 @@ msgid "Your layout file is not a valid JSON file."
 msgstr "您的布局文件不是有效的JSON文件。"
 
 #: pretix/base/models/seating.py:55 pretix/base/models/seating.py:79
-#, python-brace-format
 msgid "Your layout file is not a valid seating plan. Error message: {}"
 msgstr "您的布局文件不是有效的座位图。错误信息： {}"
 
@@ -7376,7 +7371,7 @@ msgid ""
 msgstr ""
 
 #: pretix/base/models/tax.py:315
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Your layout file is not a valid seating plan. Error message: {}"
 msgid "Your set of rules is not valid. Error message: {}"
 msgstr "您的布局文件不是有效的座位图。错误信息： {}"
@@ -8659,7 +8654,7 @@ msgid "Invoice address name: {part}"
 msgstr "发票地址名称：{part}"
 
 #: pretix/base/pdf.py:1328
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Your layout file is not a valid seating plan. Error message: {}"
 msgid "Your layout file is not a valid layout. Error message: {}"
 msgstr "您的布局文件不是有效的座位图。错误信息： {}"
@@ -9383,7 +9378,6 @@ msgid "Attendee: {name}"
 msgstr "观众：{name}"
 
 #: pretix/base/services/invoices.py:278 pretix/plugins/reports/exporters.py:308
-#, python-brace-format
 msgctxt "subevent"
 msgid "Date: {}"
 msgstr "日期：{}"
@@ -9401,7 +9395,6 @@ msgid "012345"
 msgstr "012345"
 
 #: pretix/base/services/invoices.py:612
-#, python-brace-format
 msgid "Sample product {}"
 msgstr "样本产品{}"
 
@@ -12983,7 +12976,6 @@ msgid "Length of gift card codes"
 msgstr "礼品卡代码"
 
 #: pretix/base/settings.py:3498
-#, python-brace-format
 msgid ""
 "The system generates by default {}-character long gift card codes. However, "
 "if a different length is required, it can be set here."
@@ -14440,7 +14432,6 @@ msgid "Ask and require input"
 msgstr ""
 
 #: pretix/control/forms/event.py:777
-#, python-brace-format
 msgid ""
 "You have configured gift cards to be valid {} years plus the year the gift "
 "card is issued in."
@@ -16560,7 +16551,6 @@ msgid "Do nothing and keep the order as it is."
 msgstr "什么都不做，保持原样。"
 
 #: pretix/control/forms/orders.py:836
-#, python-brace-format
 msgid "The refund amount needs to be positive and less than {}."
 msgstr "退款金额必须为正数且小于{}。"
 
@@ -17561,7 +17551,6 @@ msgid ""
 msgstr "位置 #{posid}已被扫描并拒绝，因为它之前已经在列表{list}上扫描过。"
 
 #: pretix/control/logdisplay.py:402
-#, python-brace-format
 msgid "The user confirmed the following message: \"{}\""
 msgstr "用户确认以下消息：\"{}\""
 
@@ -18047,12 +18036,10 @@ msgid "Your email address {email} has been confirmed."
 msgstr "您的购物车已更新。"
 
 #: pretix/control/logdisplay.py:685
-#, python-brace-format
 msgid "You impersonated {}."
 msgstr "您冒充了{}。"
 
 #: pretix/control/logdisplay.py:686
-#, python-brace-format
 msgid "You stopped impersonating {}."
 msgstr "您停止冒充{}。"
 
@@ -28742,19 +28729,16 @@ msgstr ""
 "且该链接以前没有被使用过。"
 
 #: pretix/control/views/auth.py:253
-#, python-brace-format
 msgid ""
 "You cannot accept the invitation for \"{}\" as you already are part of this "
 "team."
 msgstr "您已无法接受\"{}\"邀请，因为您已加入此团队。"
 
 #: pretix/control/views/auth.py:270
-#, python-brace-format
 msgid "You are now part of the team \"{}\"."
 msgstr "您现在是\"{}\"团队的一员。"
 
 #: pretix/control/views/auth.py:301
-#, python-brace-format
 msgid "Welcome to pretix! You are now part of the team \"{}\"."
 msgstr "欢迎来到pretix！您现在是\"{}\"团队的一员。"
 
@@ -29062,12 +29046,11 @@ msgid ""
 msgstr "您没有执行此操作的权限。"
 
 #: pretix/control/views/event.py:472 pretix/control/views/organizer.py:714
-#, python-brace-format
 msgid "The plugin {} is now active, you can configure it here:"
 msgstr ""
 
 #: pretix/control/views/event.py:481 pretix/control/views/organizer.py:723
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "The selected ticket shop is currently not available."
 msgid "The plugin {} is now active."
 msgstr "所选的售票处目前无法使用。"
@@ -29669,19 +29652,16 @@ msgid ""
 msgstr "您为仅支持全额退款的付款方式选择了部分退款。"
 
 #: pretix/control/views/orders.py:1354
-#, python-brace-format
 msgid ""
 "One of the refunds failed to be processed. You should retry to refund in a "
 "different way. The error message was: {}"
 msgstr "其中一个退款处理失败。您应该以不同的方式重新尝试退款。错误消息为：{}"
 
 #: pretix/control/views/orders.py:1360
-#, python-brace-format
 msgid "A refund of {} has been processed."
 msgstr "已处理的退款{}。"
 
 #: pretix/control/views/orders.py:1364
-#, python-brace-format
 msgid ""
 "A refund of {} has been saved, but not yet fully executed. You can mark it "
 "as complete below."
@@ -29881,12 +29861,10 @@ msgid "Subject: {subject}"
 msgstr "主题：{subject}"
 
 #: pretix/control/views/orders.py:2448 pretix/control/views/orders.py:2519
-#, python-brace-format
 msgid "Your message has been queued and will be sent to {}."
 msgstr "您的邮件已排队，并将发送至{}。"
 
 #: pretix/control/views/orders.py:2452 pretix/control/views/orders.py:2522
-#, python-brace-format
 msgid "Failed to send mail to the following user: {}"
 msgstr "无法向以下用户发送邮件：{}"
 
@@ -30113,7 +30091,6 @@ msgid "The new member has been added to the team."
 msgstr "新成员已添加到团队中。"
 
 #: pretix/control/views/organizer.py:1181
-#, python-brace-format
 msgid ""
 "A new API token has been created with the following secret: {}\n"
 "Please copy this secret to a safe place. You will not be able to view it "
@@ -30386,7 +30363,6 @@ msgid "Please do not create more than 100.000 dates at once."
 msgstr ""
 
 #: pretix/control/views/subevents.py:1054
-#, python-brace-format
 msgctxt "subevent"
 msgid "{} new dates have been created."
 msgstr "{}新日期已创建。"
@@ -30396,13 +30372,13 @@ msgid "Series:"
 msgstr "系列："
 
 #: pretix/control/views/typeahead.py:115
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Order {val}"
 msgid "Order {}"
 msgstr "订单{val}"
 
 #: pretix/control/views/typeahead.py:128
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Voucher"
 msgid "Voucher {}"
 msgstr "优惠券"
@@ -31195,7 +31171,6 @@ msgid "The selected badge layout been deleted."
 msgstr "选定的徽章布局已被删除。"
 
 #: pretix/plugins/badges/views.py:217
-#, python-brace-format
 msgid "Badge layout: {}"
 msgstr "徽章布局：{}"
 
@@ -32226,7 +32201,6 @@ msgstr "发送确认邮件时出错。"
 
 #: pretix/plugins/paypal/payment.py:566 pretix/plugins/paypal/payment.py:573
 #: pretix/plugins/paypal2/payment.py:979 pretix/plugins/paypal2/payment.py:1000
-#, python-brace-format
 msgid "Refunding the amount via PayPal failed: {}"
 msgstr "通过PayPal退款失败：{}"
 
@@ -32544,7 +32518,6 @@ msgid "Capture pending."
 msgstr "收费待处理"
 
 #: pretix/plugins/paypal2/signals.py:75
-#, python-brace-format
 msgid "PayPal reported an event: {}"
 msgstr "PayPal报告了一个活动：{}"
 
@@ -34395,27 +34368,22 @@ msgid "Payment authorization failed."
 msgstr "付款授权失败。"
 
 #: pretix/plugins/stripe/signals.py:105
-#, python-brace-format
 msgid "Charge failed. Reason: {}"
 msgstr "收费失败。原因：{}"
 
 #: pretix/plugins/stripe/signals.py:107
-#, python-brace-format
 msgid "Dispute created. Reason: {}"
 msgstr "引起争议。原因：{}"
 
 #: pretix/plugins/stripe/signals.py:109
-#, python-brace-format
 msgid "Dispute updated. Reason: {}"
 msgstr "争议更新。原因:{}"
 
 #: pretix/plugins/stripe/signals.py:111
-#, python-brace-format
 msgid "Dispute closed. Status: {}"
 msgstr "争议关闭。原因：{}"
 
 #: pretix/plugins/stripe/signals.py:114
-#, python-brace-format
 msgid "Stripe reported an event: {}"
 msgstr "Stripe报告了一个活动：{}"
 
@@ -34684,7 +34652,6 @@ msgid "An error occurred during connecting with Stripe, please try again."
 msgstr "连接Stripe时出错，请重试。"
 
 #: pretix/plugins/stripe/views.py:157 pretix/plugins/stripe/views.py:159
-#, python-brace-format
 msgid "Stripe returned an error: {}"
 msgstr "Stripe返回错误：{}"
 
@@ -34876,7 +34843,6 @@ msgid "The selected ticket layout been deleted."
 msgstr "所选票证布局已被删除。"
 
 #: pretix/plugins/ticketoutputpdf/views.py:250
-#, python-brace-format
 msgid "Ticket PDF layout: {}"
 msgstr "票证PDF布局：{}"
 
@@ -34983,7 +34949,7 @@ msgid "Payment"
 msgstr "付款"
 
 #: pretix/presale/checkoutflow.py:1368
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid ""
 #| "Your gift card has been applied, but {} still need to be paid. Please "
 #| "select a payment method."

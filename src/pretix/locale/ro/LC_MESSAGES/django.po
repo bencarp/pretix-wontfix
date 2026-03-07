@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 13:19+0000\n"
+"POT-Creation-Date: 2026-02-28 13:24+0000\n"
 "PO-Revision-Date: 2025-10-09 16:00+0000\n"
 "Last-Translator: Edd28 <chitu_edy@yahoo.com>\n"
 "Language-Team: Romanian <https://translate.pretix.eu/projects/pretix/pretix/"
@@ -236,7 +236,6 @@ msgid "Comment"
 msgstr "Comentariu"
 
 #: pretix/api/serializers/cart.py:168 pretix/api/serializers/order.py:1502
-#, python-brace-format
 msgid "The product \"{}\" is not assigned to a quota."
 msgstr "Produsul \"{}\" nu este atribuit unei cote."
 
@@ -405,12 +404,10 @@ msgid "The selected seat \"{seat}\" is not available."
 msgstr "Locul selectat \"{seat}\" nu este disponibil."
 
 #: pretix/api/serializers/order.py:1489 pretix/api/serializers/order.py:1496
-#, python-brace-format
 msgid "The product \"{}\" is not available on this date."
 msgstr "Produsul \"{}\" nu este disponibil la această dată."
 
 #: pretix/api/serializers/order.py:1511 pretix/api/views/cart.py:200
-#, python-brace-format
 msgid ""
 "There is not enough quota available on quota \"{}\" to perform the operation."
 msgstr ""
@@ -1246,7 +1243,7 @@ msgid "Ticket link"
 msgstr "Machetă bilete"
 
 #: pretix/base/datasync/sourcefields.py:578
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Check-in list"
 msgid "Check-in datetime on list {}"
 msgstr "Lista de check-in"
@@ -6457,7 +6454,6 @@ msgid "Answer"
 msgstr "Răspuns"
 
 #: pretix/base/models/items.py:1985
-#, python-brace-format
 msgid "The identifier \"{}\" is already used for a different option."
 msgstr "Identificatorul \"{}\" este deja utilizat pentru o altă opțiune."
 
@@ -7152,7 +7148,6 @@ msgid "Your layout file is not a valid JSON file."
 msgstr "Fișierului dvs. tip machetă nu este un JSON valid."
 
 #: pretix/base/models/seating.py:55 pretix/base/models/seating.py:79
-#, python-brace-format
 msgid "Your layout file is not a valid seating plan. Error message: {}"
 msgstr ""
 "Fișierul dvs. tip machetă nu este un plan de dispunere a locurilor valid. "
@@ -7326,7 +7321,7 @@ msgid ""
 msgstr ""
 
 #: pretix/base/models/tax.py:315
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Your layout file is not a valid seating plan. Error message: {}"
 msgid "Your set of rules is not valid. Error message: {}"
 msgstr ""
@@ -8630,7 +8625,7 @@ msgid "Invoice address name: {part}"
 msgstr "Adresa de facturare: {part}"
 
 #: pretix/base/pdf.py:1328
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Your layout file is not a valid seating plan. Error message: {}"
 msgid "Your layout file is not a valid layout. Error message: {}"
 msgstr ""
@@ -9405,7 +9400,6 @@ msgid "Attendee: {name}"
 msgstr "Participant: {name}"
 
 #: pretix/base/services/invoices.py:278 pretix/plugins/reports/exporters.py:308
-#, python-brace-format
 msgctxt "subevent"
 msgid "Date: {}"
 msgstr "Data: {}"
@@ -9423,7 +9417,6 @@ msgid "012345"
 msgstr "012345"
 
 #: pretix/base/services/invoices.py:612
-#, python-brace-format
 msgid "Sample product {}"
 msgstr "Produs de probă {}"
 
@@ -13305,7 +13298,6 @@ msgid "Length of gift card codes"
 msgstr "Lungimea codurilor cardurilor cadou"
 
 #: pretix/base/settings.py:3498
-#, python-brace-format
 msgid ""
 "The system generates by default {}-character long gift card codes. However, "
 "if a different length is required, it can be set here."
@@ -14775,7 +14767,6 @@ msgid "Ask and require input"
 msgstr "Cereți și solicitați completarea"
 
 #: pretix/control/forms/event.py:777
-#, python-brace-format
 msgid ""
 "You have configured gift cards to be valid {} years plus the year the gift "
 "card is issued in."
@@ -16843,7 +16834,6 @@ msgid "Do nothing and keep the order as it is."
 msgstr "Nu faceți nimic și păstrați comanda așa cum este."
 
 #: pretix/control/forms/orders.py:836
-#, python-brace-format
 msgid "The refund amount needs to be positive and less than {}."
 msgstr "Valoarea rambursabilă trebuie să fie pozitivă și mai mică decât {}."
 
@@ -17829,7 +17819,6 @@ msgstr ""
 "lista \"{list}\"."
 
 #: pretix/control/logdisplay.py:402
-#, python-brace-format
 msgid "The user confirmed the following message: \"{}\""
 msgstr "Utilizatorul a confirmat următorul mesaj: \"{}\""
 
@@ -18331,12 +18320,10 @@ msgid "Your email address {email} has been confirmed."
 msgstr "Adresa dvs. de e-mail a fost actualizată."
 
 #: pretix/control/logdisplay.py:685
-#, python-brace-format
 msgid "You impersonated {}."
 msgstr "V-ați dat drept {}."
 
 #: pretix/control/logdisplay.py:686
-#, python-brace-format
 msgid "You stopped impersonating {}."
 msgstr "Ați încetat să vă dați drept {}."
 
@@ -29079,7 +29066,6 @@ msgstr ""
 "înainte."
 
 #: pretix/control/views/auth.py:253
-#, python-brace-format
 msgid ""
 "You cannot accept the invitation for \"{}\" as you already are part of this "
 "team."
@@ -29088,12 +29074,10 @@ msgstr ""
 "această echipă."
 
 #: pretix/control/views/auth.py:270
-#, python-brace-format
 msgid "You are now part of the team \"{}\"."
 msgstr "Acum faceți parte din echipa \"{}\"."
 
 #: pretix/control/views/auth.py:301
-#, python-brace-format
 msgid "Welcome to pretix! You are now part of the team \"{}\"."
 msgstr "Bine ați venit la pretix! Acum faci parte din echipa \"{}\"."
 
@@ -29400,12 +29384,11 @@ msgid ""
 msgstr "Ne pare rău, nu aveți permisiunea de a efectua această acțiune."
 
 #: pretix/control/views/event.py:472 pretix/control/views/organizer.py:714
-#, python-brace-format
 msgid "The plugin {} is now active, you can configure it here:"
 msgstr ""
 
 #: pretix/control/views/event.py:481 pretix/control/views/organizer.py:723
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "The selected ticket shop is currently not available."
 msgid "The plugin {} is now active."
 msgstr "Magazinul de bilete selectat nu este disponibil în prezent."
@@ -30044,7 +30027,6 @@ msgstr ""
 "numai rambursări integrale."
 
 #: pretix/control/views/orders.py:1354
-#, python-brace-format
 msgid ""
 "One of the refunds failed to be processed. You should retry to refund in a "
 "different way. The error message was: {}"
@@ -30053,12 +30035,10 @@ msgstr ""
 "efectuați rambursarea într-un alt mod. Mesajul de eroare a fost următorul: {}"
 
 #: pretix/control/views/orders.py:1360
-#, python-brace-format
 msgid "A refund of {} has been processed."
 msgstr "A fost procesată o rambursare de {}."
 
 #: pretix/control/views/orders.py:1364
-#, python-brace-format
 msgid ""
 "A refund of {} has been saved, but not yet fully executed. You can mark it "
 "as complete below."
@@ -30274,12 +30254,10 @@ msgid "Subject: {subject}"
 msgstr "Subiect: {subject}"
 
 #: pretix/control/views/orders.py:2448 pretix/control/views/orders.py:2519
-#, python-brace-format
 msgid "Your message has been queued and will be sent to {}."
 msgstr "Mesajul dvs. a fost pus în coadă și va fi trimis la {}."
 
 #: pretix/control/views/orders.py:2452 pretix/control/views/orders.py:2522
-#, python-brace-format
 msgid "Failed to send mail to the following user: {}"
 msgstr "Nu s-a reușit trimiterea de mesaje către următorul utilizator: {}"
 
@@ -30513,7 +30491,6 @@ msgid "The new member has been added to the team."
 msgstr "Noul membru a fost adăugat în echipă."
 
 #: pretix/control/views/organizer.py:1181
-#, python-brace-format
 msgid ""
 "A new API token has been created with the following secret: {}\n"
 "Please copy this secret to a safe place. You will not be able to view it "
@@ -30763,7 +30740,6 @@ msgid "Please do not create more than 100.000 dates at once."
 msgstr "Vă rugăm să nu creați mai mult de 100.000 de date deodată."
 
 #: pretix/control/views/subevents.py:1054
-#, python-brace-format
 msgctxt "subevent"
 msgid "{} new dates have been created."
 msgstr "{} au fost create date noi."
@@ -30773,12 +30749,10 @@ msgid "Series:"
 msgstr "Serii:"
 
 #: pretix/control/views/typeahead.py:115
-#, python-brace-format
 msgid "Order {}"
 msgstr "Comanda {}"
 
 #: pretix/control/views/typeahead.py:128
-#, python-brace-format
 msgid "Voucher {}"
 msgstr "Voucher {}"
 
@@ -31582,7 +31556,6 @@ msgid "The selected badge layout been deleted."
 msgstr "Macheta de insignă selectată a fost ștearsă."
 
 #: pretix/plugins/badges/views.py:217
-#, python-brace-format
 msgid "Badge layout: {}"
 msgstr "Macheta insignei: {}"
 
@@ -32632,7 +32605,6 @@ msgstr "S-a produs o eroare la trimiterea mailului de confirmare."
 
 #: pretix/plugins/paypal/payment.py:566 pretix/plugins/paypal/payment.py:573
 #: pretix/plugins/paypal2/payment.py:979 pretix/plugins/paypal2/payment.py:1000
-#, python-brace-format
 msgid "Refunding the amount via PayPal failed: {}"
 msgstr "Rambursarea sumei prin PayPal a eșuat: {}"
 
@@ -32955,7 +32927,6 @@ msgid "Capture pending."
 msgstr "Plată în curs"
 
 #: pretix/plugins/paypal2/signals.py:75
-#, python-brace-format
 msgid "PayPal reported an event: {}"
 msgstr "PayPal a raportat un eveniment: {}"
 
@@ -34771,27 +34742,22 @@ msgid "Payment authorization failed."
 msgstr "Autorizarea plății a eșuat."
 
 #: pretix/plugins/stripe/signals.py:105
-#, python-brace-format
 msgid "Charge failed. Reason: {}"
 msgstr "Plata a eșuat. Motivul: {}"
 
 #: pretix/plugins/stripe/signals.py:107
-#, python-brace-format
 msgid "Dispute created. Reason: {}"
 msgstr "Dispută creată. Motiv: {}"
 
 #: pretix/plugins/stripe/signals.py:109
-#, python-brace-format
 msgid "Dispute updated. Reason: {}"
 msgstr "Dispută actualizată. Motiv: {}"
 
 #: pretix/plugins/stripe/signals.py:111
-#, python-brace-format
 msgid "Dispute closed. Status: {}"
 msgstr "Litigiu închis. Stare: {}"
 
 #: pretix/plugins/stripe/signals.py:114
-#, python-brace-format
 msgid "Stripe reported an event: {}"
 msgstr "Stripe a raportat un eveniment: {}"
 
@@ -35076,7 +35042,6 @@ msgstr ""
 "nou."
 
 #: pretix/plugins/stripe/views.py:157 pretix/plugins/stripe/views.py:159
-#, python-brace-format
 msgid "Stripe returned an error: {}"
 msgstr "Stripe a returnat o eroare: {}"
 
@@ -35274,7 +35239,6 @@ msgid "The selected ticket layout been deleted."
 msgstr "A fost ștearsă macheta selectată a biletului."
 
 #: pretix/plugins/ticketoutputpdf/views.py:250
-#, python-brace-format
 msgid "Ticket PDF layout: {}"
 msgstr "Macheta PDF a biletului: {}"
 
@@ -35384,7 +35348,7 @@ msgid "Payment"
 msgstr "Plată"
 
 #: pretix/presale/checkoutflow.py:1368
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid ""
 #| "Your gift card has been applied, but {} still need to be paid. Please "
 #| "select a payment method."

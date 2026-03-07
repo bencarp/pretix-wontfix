@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HE PRETIX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 13:19+0000\n"
+"POT-Creation-Date: 2026-02-28 13:24+0000\n"
 "PO-Revision-Date: 2025-05-21 10:46+0000\n"
 "Last-Translator: Raphael Michel <michel@rami.io>\n"
 "Language-Team: Hebrew <https://translate.pretix.eu/projects/pretix/pretix/he/"
@@ -227,7 +227,6 @@ msgid "Comment"
 msgstr "הערה"
 
 #: pretix/api/serializers/cart.py:168 pretix/api/serializers/order.py:1502
-#, python-brace-format
 msgid "The product \"{}\" is not assigned to a quota."
 msgstr "המוצר \"{}\" אינו משויך למכסה."
 
@@ -376,12 +375,10 @@ msgid "The selected seat \"{seat}\" is not available."
 msgstr "המושב שנבחר \"{seat}\" אינו זמין."
 
 #: pretix/api/serializers/order.py:1489 pretix/api/serializers/order.py:1496
-#, python-brace-format
 msgid "The product \"{}\" is not available on this date."
 msgstr "המוצר \"{}\" אינו זמין בתאריך זה."
 
 #: pretix/api/serializers/order.py:1511 pretix/api/views/cart.py:200
-#, python-brace-format
 msgid ""
 "There is not enough quota available on quota \"{}\" to perform the operation."
 msgstr "אין מספיק מכסה זמינה במכסה \"{}\" לביצוע הפעולה."
@@ -1178,7 +1175,7 @@ msgid "Ticket link"
 msgstr "חסימת כרטיס"
 
 #: pretix/base/datasync/sourcefields.py:578
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Check-in list {val}"
 msgid "Check-in datetime on list {}"
 msgstr "רשימת הצ'ק-אין {val}"
@@ -6093,7 +6090,6 @@ msgid "Answer"
 msgstr "תשובה"
 
 #: pretix/base/models/items.py:1985
-#, python-brace-format
 msgid "The identifier \"{}\" is already used for a different option."
 msgstr "המזהה \"{}\" כבר בשימוש עבור אפשרות אחרת."
 
@@ -6738,7 +6734,6 @@ msgid "Your layout file is not a valid JSON file."
 msgstr "קובץ הפריסה שלך אינו קובץ JSON חוקי."
 
 #: pretix/base/models/seating.py:55 pretix/base/models/seating.py:79
-#, python-brace-format
 msgid "Your layout file is not a valid seating plan. Error message: {}"
 msgstr "קובץ הפריסה שלך אינו תוכנית ישיבה חוקית. הודעת שגיאה: {}"
 
@@ -6902,7 +6897,6 @@ msgid ""
 msgstr "הערות זיכוי מקומיות בצרפת ללא מע״מ, בשל ויתור הספק על המע\"מ עבור הנחה"
 
 #: pretix/base/models/tax.py:315
-#, python-brace-format
 msgid "Your set of rules is not valid. Error message: {}"
 msgstr "ערכת הכללים שלך אינה תקפה. הודעת שגיאה: {}"
 
@@ -8113,7 +8107,6 @@ msgid "Invoice address name: {part}"
 msgstr "שם לחשבונית: {part}"
 
 #: pretix/base/pdf.py:1328
-#, python-brace-format
 msgid "Your layout file is not a valid layout. Error message: {}"
 msgstr "קובץ הפריסה שלך אינו פריסת עיצוב תקינה. הודעת שגיאה: {}"
 
@@ -8785,7 +8778,6 @@ msgid "Attendee: {name}"
 msgstr "משתתף: {name}"
 
 #: pretix/base/services/invoices.py:278 pretix/plugins/reports/exporters.py:308
-#, python-brace-format
 msgctxt "subevent"
 msgid "Date: {}"
 msgstr "תאריך: {}"
@@ -8803,7 +8795,6 @@ msgid "012345"
 msgstr "012345"
 
 #: pretix/base/services/invoices.py:612
-#, python-brace-format
 msgid "Sample product {}"
 msgstr "מוצר לדוגמה {}"
 
@@ -12295,7 +12286,6 @@ msgid "Length of gift card codes"
 msgstr "אורך קודי כרטיס מתנה"
 
 #: pretix/base/settings.py:3498
-#, python-brace-format
 msgid ""
 "The system generates by default {}-character long gift card codes. However, "
 "if a different length is required, it can be set here."
@@ -13629,7 +13619,6 @@ msgid "Ask and require input"
 msgstr "שאל וחובה להזין"
 
 #: pretix/control/forms/event.py:777
-#, python-brace-format
 msgid ""
 "You have configured gift cards to be valid {} years plus the year the gift "
 "card is issued in."
@@ -15591,7 +15580,6 @@ msgid "Do nothing and keep the order as it is."
 msgstr "אל תבצע פעולה ושמור את ההזמנה כפי שהיא."
 
 #: pretix/control/forms/orders.py:836
-#, python-brace-format
 msgid "The refund amount needs to be positive and less than {}."
 msgstr "סכום ההחזר חייב להיות חיובי ופחות מ-{}."
 
@@ -16488,7 +16476,6 @@ msgid ""
 msgstr "מיקום מס' {posid} נסרק ונדחה כיוון שכבר נסרק בעבר ברשימה \"{list}\"."
 
 #: pretix/control/logdisplay.py:402
-#, python-brace-format
 msgid "The user confirmed the following message: \"{}\""
 msgstr "המשתמש אישר את ההודעה הבאה: \"{}\""
 
@@ -16934,12 +16921,10 @@ msgid "Your email address {email} has been confirmed."
 msgstr "כתובת הדואר האלקטרוני שלך עודכנה."
 
 #: pretix/control/logdisplay.py:685
-#, python-brace-format
 msgid "You impersonated {}."
 msgstr "ביצעת התחזות ל-{}."
 
 #: pretix/control/logdisplay.py:686
-#, python-brace-format
 msgid "You stopped impersonating {}."
 msgstr "הפסקת התחזות ל-{}."
 
@@ -27001,19 +26986,16 @@ msgstr ""
 "נכון ושהקישור לא שומש בעבר."
 
 #: pretix/control/views/auth.py:253
-#, python-brace-format
 msgid ""
 "You cannot accept the invitation for \"{}\" as you already are part of this "
 "team."
 msgstr "אינך יכול לקבל את ההזמנה ל-\"{}\" משום שאתה כבר חלק מהצוות הזה."
 
 #: pretix/control/views/auth.py:270
-#, python-brace-format
 msgid "You are now part of the team \"{}\"."
 msgstr "כעת אתה חלק מהצוות \"{}\"."
 
 #: pretix/control/views/auth.py:301
-#, python-brace-format
 msgid "Welcome to pretix! You are now part of the team \"{}\"."
 msgstr "ברוך הבא ל-pretix! כעת אתה חלק מהצוות \"{}\"."
 
@@ -27296,12 +27278,10 @@ msgid ""
 msgstr "אין לך הרשאה מספקת לביצוע ייצוא זה."
 
 #: pretix/control/views/event.py:472 pretix/control/views/organizer.py:714
-#, python-brace-format
 msgid "The plugin {} is now active, you can configure it here:"
 msgstr "התוסף {} פעיל כעת, באפשרותך להגדיר אותו כאן:"
 
 #: pretix/control/views/event.py:481 pretix/control/views/organizer.py:723
-#, python-brace-format
 msgid "The plugin {} is now active."
 msgstr "התוסף {} פעיל כעת."
 
@@ -27901,7 +27881,6 @@ msgid ""
 msgstr "בחרת החזר חלקי עבור אמצעי תשלום התומך בהחזרים מלאים בלבד."
 
 #: pretix/control/views/orders.py:1354
-#, python-brace-format
 msgid ""
 "One of the refunds failed to be processed. You should retry to refund in a "
 "different way. The error message was: {}"
@@ -27910,12 +27889,10 @@ msgstr ""
 "הייתה: {}"
 
 #: pretix/control/views/orders.py:1360
-#, python-brace-format
 msgid "A refund of {} has been processed."
 msgstr "החזר של {} בוצע."
 
 #: pretix/control/views/orders.py:1364
-#, python-brace-format
 msgid ""
 "A refund of {} has been saved, but not yet fully executed. You can mark it "
 "as complete below."
@@ -28114,12 +28091,10 @@ msgid "Subject: {subject}"
 msgstr "נושא: {subject}"
 
 #: pretix/control/views/orders.py:2448 pretix/control/views/orders.py:2519
-#, python-brace-format
 msgid "Your message has been queued and will be sent to {}."
 msgstr "ההודעה שלך נכנסה לתור ותישלח אל {}."
 
 #: pretix/control/views/orders.py:2452 pretix/control/views/orders.py:2522
-#, python-brace-format
 msgid "Failed to send mail to the following user: {}"
 msgstr "שליחת הדוא\"ל למשתמש הבא נכשלה: {}"
 
@@ -28352,7 +28327,6 @@ msgid "The new member has been added to the team."
 msgstr "החבר החדש נוסף לצוות."
 
 #: pretix/control/views/organizer.py:1181
-#, python-brace-format
 msgid ""
 "A new API token has been created with the following secret: {}\n"
 "Please copy this secret to a safe place. You will not be able to view it "
@@ -28575,7 +28549,6 @@ msgid "Please do not create more than 100.000 dates at once."
 msgstr "אנא אל תיצור יותר מ-100,000 תאריכים בבת אחת."
 
 #: pretix/control/views/subevents.py:1054
-#, python-brace-format
 msgctxt "subevent"
 msgid "{} new dates have been created."
 msgstr "{} תאריכים חדשים נוצרו."
@@ -28585,12 +28558,10 @@ msgid "Series:"
 msgstr "סדרה:"
 
 #: pretix/control/views/typeahead.py:115
-#, python-brace-format
 msgid "Order {}"
 msgstr "הזמנה {}"
 
 #: pretix/control/views/typeahead.py:128
-#, python-brace-format
 msgid "Voucher {}"
 msgstr "שובר {}"
 
@@ -29302,7 +29273,6 @@ msgid "The selected badge layout been deleted."
 msgstr "פריסת התג הנבחרת נמחקה."
 
 #: pretix/plugins/badges/views.py:217
-#, python-brace-format
 msgid "Badge layout: {}"
 msgstr "פריסת תג מזהה: {}"
 
@@ -30256,7 +30226,6 @@ msgstr "אירעה שגיאה בשליחת מייל האישור."
 
 #: pretix/plugins/paypal/payment.py:566 pretix/plugins/paypal/payment.py:573
 #: pretix/plugins/paypal2/payment.py:979 pretix/plugins/paypal2/payment.py:1000
-#, python-brace-format
 msgid "Refunding the amount via PayPal failed: {}"
 msgstr "החזר הכסף בפייפאל נכשל: {}"
 
@@ -30563,7 +30532,6 @@ msgid "Capture pending."
 msgstr "גבייה ממתינה."
 
 #: pretix/plugins/paypal2/signals.py:75
-#, python-brace-format
 msgid "PayPal reported an event: {}"
 msgstr "PayPal דיווח על אירוע: {}"
 
@@ -32245,27 +32213,22 @@ msgid "Payment authorization failed."
 msgstr "אישור התשלום נכשל."
 
 #: pretix/plugins/stripe/signals.py:105
-#, python-brace-format
 msgid "Charge failed. Reason: {}"
 msgstr "החיוב נכשל. סיבה: {}"
 
 #: pretix/plugins/stripe/signals.py:107
-#, python-brace-format
 msgid "Dispute created. Reason: {}"
 msgstr "נוצרה מחלוקת. סיבה: {}"
 
 #: pretix/plugins/stripe/signals.py:109
-#, python-brace-format
 msgid "Dispute updated. Reason: {}"
 msgstr "המחלוקת עודכנה. סיבה: {}"
 
 #: pretix/plugins/stripe/signals.py:111
-#, python-brace-format
 msgid "Dispute closed. Status: {}"
 msgstr "המחלוקת נסגרה. סטטוס: {}"
 
 #: pretix/plugins/stripe/signals.py:114
-#, python-brace-format
 msgid "Stripe reported an event: {}"
 msgstr "Stripe דיווח על אירוע: {}"
 
@@ -32526,7 +32489,6 @@ msgid "An error occurred during connecting with Stripe, please try again."
 msgstr "אירעה שגיאה בחיבור ל-Stripe, אנא נסה שוב."
 
 #: pretix/plugins/stripe/views.py:157 pretix/plugins/stripe/views.py:159
-#, python-brace-format
 msgid "Stripe returned an error: {}"
 msgstr "Stripe החזיר שגיאה: {}"
 
@@ -32713,7 +32675,6 @@ msgid "The selected ticket layout been deleted."
 msgstr "תבנית הכרטיס שנבחרה נמחקה."
 
 #: pretix/plugins/ticketoutputpdf/views.py:250
-#, python-brace-format
 msgid "Ticket PDF layout: {}"
 msgstr "תבנית כרטיס PDF: {}"
 
@@ -32812,7 +32773,6 @@ msgid "Payment"
 msgstr "תשלום"
 
 #: pretix/presale/checkoutflow.py:1368
-#, python-brace-format
 msgid ""
 "Your payment method has been applied, but {} still need to be paid. Please "
 "select a payment method for the remainder."

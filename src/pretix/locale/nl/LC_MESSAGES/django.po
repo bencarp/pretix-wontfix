@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 13:19+0000\n"
+"POT-Creation-Date: 2026-02-28 13:24+0000\n"
 "PO-Revision-Date: 2026-01-26 13:49+0000\n"
 "Last-Translator: Ruud Hendrickx <ruud@leckxicon.eu>\n"
-"Language-Team: Dutch <https://translate.pretix.eu/projects/pretix/pretix/nl/>"
-"\n"
+"Language-Team: Dutch <https://translate.pretix.eu/projects/pretix/pretix/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -232,7 +232,6 @@ msgid "Comment"
 msgstr "Opmerking"
 
 #: pretix/api/serializers/cart.py:168 pretix/api/serializers/order.py:1502
-#, python-brace-format
 msgid "The product \"{}\" is not assigned to a quota."
 msgstr "Het product \"{}\" is niet toegewezen aan een quotum."
 
@@ -379,12 +378,10 @@ msgid "The selected seat \"{seat}\" is not available."
 msgstr "De gekozen stoel \"{seat}\" is niet beschikbaar."
 
 #: pretix/api/serializers/order.py:1489 pretix/api/serializers/order.py:1496
-#, python-brace-format
 msgid "The product \"{}\" is not available on this date."
 msgstr "Het product \"{}\" is niet beschikbaar op deze datum."
 
 #: pretix/api/serializers/order.py:1511 pretix/api/views/cart.py:200
-#, python-brace-format
 msgid ""
 "There is not enough quota available on quota \"{}\" to perform the operation."
 msgstr ""
@@ -1138,7 +1135,6 @@ msgid "Ticket link"
 msgstr "Ticket-link"
 
 #: pretix/base/datasync/sourcefields.py:578
-#, python-brace-format
 msgid "Check-in datetime on list {}"
 msgstr "Incheckdatum en -tijd op lijst {}"
 
@@ -6204,7 +6200,6 @@ msgid "Answer"
 msgstr "Antwoord"
 
 #: pretix/base/models/items.py:1985
-#, python-brace-format
 msgid "The identifier \"{}\" is already used for a different option."
 msgstr "Identificatiecode \"{}\" wordt al voor een andere optie gebruikt."
 
@@ -6877,7 +6872,6 @@ msgid "Your layout file is not a valid JSON file."
 msgstr "Uw lay-outbestand is geen geldig JSON-bestand."
 
 #: pretix/base/models/seating.py:55 pretix/base/models/seating.py:79
-#, python-brace-format
 msgid "Your layout file is not a valid seating plan. Error message: {}"
 msgstr "Uw lay-outbestand is geen geldig zitplan. Foutmelding: {}"
 
@@ -7050,7 +7044,6 @@ msgid ""
 msgstr "Franse binnenlandse creditnota, geen btw door korting van leverancier"
 
 #: pretix/base/models/tax.py:315
-#, python-brace-format
 msgid "Your set of rules is not valid. Error message: {}"
 msgstr "Uw set regels is niet geldig. Foutmelding: {}"
 
@@ -8327,7 +8320,6 @@ msgid "Invoice address name: {part}"
 msgstr "Naam factuuradres: {part}"
 
 #: pretix/base/pdf.py:1328
-#, python-brace-format
 msgid "Your layout file is not a valid layout. Error message: {}"
 msgstr "Uw lay-outbestand is geen geldige lay-out. Foutmelding: {}"
 
@@ -9016,7 +9008,6 @@ msgid "Attendee: {name}"
 msgstr "Deelnemer: {name}"
 
 #: pretix/base/services/invoices.py:278 pretix/plugins/reports/exporters.py:308
-#, python-brace-format
 msgctxt "subevent"
 msgid "Date: {}"
 msgstr "Datum: {}"
@@ -9035,7 +9026,6 @@ msgid "012345"
 msgstr "012345"
 
 #: pretix/base/services/invoices.py:612
-#, python-brace-format
 msgid "Sample product {}"
 msgstr "Voorbeeldproduct {}"
 
@@ -12749,7 +12739,6 @@ msgid "Length of gift card codes"
 msgstr "Lengte van cadeauboncodes"
 
 #: pretix/base/settings.py:3498
-#, python-brace-format
 msgid ""
 "The system generates by default {}-character long gift card codes. However, "
 "if a different length is required, it can be set here."
@@ -14128,7 +14117,6 @@ msgid "Ask and require input"
 msgstr "Vraag en maak invullen verplicht"
 
 #: pretix/control/forms/event.py:777
-#, python-brace-format
 msgid ""
 "You have configured gift cards to be valid {} years plus the year the gift "
 "card is issued in."
@@ -16166,7 +16154,6 @@ msgid "Do nothing and keep the order as it is."
 msgstr "Doe niets en houd de bestelling in de huidige staat."
 
 #: pretix/control/forms/orders.py:836
-#, python-brace-format
 msgid "The refund amount needs to be positive and less than {}."
 msgstr "Het bedrag van de terugbetaling moet positief zijn en minder dan {}."
 
@@ -17096,7 +17083,6 @@ msgstr ""
 "\"{list}\"."
 
 #: pretix/control/logdisplay.py:402
-#, python-brace-format
 msgid "The user confirmed the following message: \"{}\""
 msgstr "De gebruiker bevestigde het volgende bericht: \"{}\""
 
@@ -17575,12 +17561,10 @@ msgid "Your email address {email} has been confirmed."
 msgstr "Uw e-mailadres {email} is bevestigd."
 
 #: pretix/control/logdisplay.py:685
-#, python-brace-format
 msgid "You impersonated {}."
 msgstr "U heeft als de gebruiker {} gewerkt."
 
 #: pretix/control/logdisplay.py:686
-#, python-brace-format
 msgid "You stopped impersonating {}."
 msgstr "U bent gestopt met werken als {}."
 
@@ -27978,7 +27962,6 @@ msgstr ""
 "adresbalk en controleer of deze correct is en nog niet eerder is gebruikt."
 
 #: pretix/control/views/auth.py:253
-#, python-brace-format
 msgid ""
 "You cannot accept the invitation for \"{}\" as you already are part of this "
 "team."
@@ -27987,12 +27970,10 @@ msgstr ""
 "team bent."
 
 #: pretix/control/views/auth.py:270
-#, python-brace-format
 msgid "You are now part of the team \"{}\"."
 msgstr "U bent nu lid van het team \"{}\"."
 
 #: pretix/control/views/auth.py:301
-#, python-brace-format
 msgid "Welcome to pretix! You are now part of the team \"{}\"."
 msgstr "Welkom bij pretix! U bent nu lid van het team \"{}\"."
 
@@ -28274,12 +28255,10 @@ msgstr ""
 "organisatoraccount moeten worden ingeschakeld."
 
 #: pretix/control/views/event.py:472 pretix/control/views/organizer.py:714
-#, python-brace-format
 msgid "The plugin {} is now active, you can configure it here:"
 msgstr "De plugin {} is nu geactiveerd, u kunt hem hier configureren:"
 
 #: pretix/control/views/event.py:481 pretix/control/views/organizer.py:723
-#, python-brace-format
 msgid "The plugin {} is now active."
 msgstr "De plugin {} is nu geactiveerd."
 
@@ -28924,7 +28903,6 @@ msgstr ""
 "volledige terugbetalingen ondersteunt."
 
 #: pretix/control/views/orders.py:1354
-#, python-brace-format
 msgid ""
 "One of the refunds failed to be processed. You should retry to refund in a "
 "different way. The error message was: {}"
@@ -28933,12 +28911,10 @@ msgstr ""
 "manier terug te betalen. De foutmelding was: {}"
 
 #: pretix/control/views/orders.py:1360
-#, python-brace-format
 msgid "A refund of {} has been processed."
 msgstr "Een terugbetaling van {} is verwerkt."
 
 #: pretix/control/views/orders.py:1364
-#, python-brace-format
 msgid ""
 "A refund of {} has been saved, but not yet fully executed. You can mark it "
 "as complete below."
@@ -29151,12 +29127,10 @@ msgid "Subject: {subject}"
 msgstr "Onderwerp: {subject}"
 
 #: pretix/control/views/orders.py:2448 pretix/control/views/orders.py:2519
-#, python-brace-format
 msgid "Your message has been queued and will be sent to {}."
 msgstr "Uw bericht is in de wachtrij gezet en zal worden verstuurd naar {}."
 
 #: pretix/control/views/orders.py:2452 pretix/control/views/orders.py:2522
-#, python-brace-format
 msgid "Failed to send mail to the following user: {}"
 msgstr "Kon geen mail sturen naar de volgende gebruiker: {}"
 
@@ -29393,7 +29367,6 @@ msgid "The new member has been added to the team."
 msgstr "Het nieuwe lid is toegevoegd aan het team."
 
 #: pretix/control/views/organizer.py:1181
-#, python-brace-format
 msgid ""
 "A new API token has been created with the following secret: {}\n"
 "Please copy this secret to a safe place. You will not be able to view it "
@@ -29624,7 +29597,6 @@ msgid "Please do not create more than 100.000 dates at once."
 msgstr "U kunt maximaal 100.000 datums tegelijk aanmaken."
 
 #: pretix/control/views/subevents.py:1054
-#, python-brace-format
 msgctxt "subevent"
 msgid "{} new dates have been created."
 msgstr "{} nieuwe datums zijn aangemaakt."
@@ -29634,12 +29606,10 @@ msgid "Series:"
 msgstr "Reeks:"
 
 #: pretix/control/views/typeahead.py:115
-#, python-brace-format
 msgid "Order {}"
 msgstr "Bestelling {}"
 
 #: pretix/control/views/typeahead.py:128
-#, python-brace-format
 msgid "Voucher {}"
 msgstr "Voucher {}"
 
@@ -30358,7 +30328,6 @@ msgid "The selected badge layout been deleted."
 msgstr "De gekozen badge-lay-out is verwijderd."
 
 #: pretix/plugins/badges/views.py:217
-#, python-brace-format
 msgid "Badge layout: {}"
 msgstr "Badge-lay-out: {}"
 
@@ -31375,7 +31344,6 @@ msgstr "Er is een fout opgetreden bij het versturen van de bevestigingsmail."
 
 #: pretix/plugins/paypal/payment.py:566 pretix/plugins/paypal/payment.py:573
 #: pretix/plugins/paypal2/payment.py:979 pretix/plugins/paypal2/payment.py:1000
-#, python-brace-format
 msgid "Refunding the amount via PayPal failed: {}"
 msgstr "Het bedrag via PayPal terugbetalen is mislukt: {}"
 
@@ -31704,7 +31672,6 @@ msgid "Capture pending."
 msgstr "Transactie staat open."
 
 #: pretix/plugins/paypal2/signals.py:75
-#, python-brace-format
 msgid "PayPal reported an event: {}"
 msgstr "PayPal meldt: {}"
 
@@ -33443,27 +33410,22 @@ msgid "Payment authorization failed."
 msgstr "Betalingsgoedkeuring mislukt."
 
 #: pretix/plugins/stripe/signals.py:105
-#, python-brace-format
 msgid "Charge failed. Reason: {}"
 msgstr "Transactie mislukt. Reden: {}"
 
 #: pretix/plugins/stripe/signals.py:107
-#, python-brace-format
 msgid "Dispute created. Reason: {}"
 msgstr "Geschil aangemaakt. Reden: {}"
 
 #: pretix/plugins/stripe/signals.py:109
-#, python-brace-format
 msgid "Dispute updated. Reason: {}"
 msgstr "Geschil bijgewerkt. Reden: {}"
 
 #: pretix/plugins/stripe/signals.py:111
-#, python-brace-format
 msgid "Dispute closed. Status: {}"
 msgstr "Geschil gesloten. Status: {}"
 
 #: pretix/plugins/stripe/signals.py:114
-#, python-brace-format
 msgid "Stripe reported an event: {}"
 msgstr "Stripe meldde een gebeurtenis: {}"
 
@@ -33724,7 +33686,6 @@ msgstr ""
 "Er trad een fout op tijdens het verbinden met Stripe, probeer het opnieuw."
 
 #: pretix/plugins/stripe/views.py:157 pretix/plugins/stripe/views.py:159
-#, python-brace-format
 msgid "Stripe returned an error: {}"
 msgstr "Stripe meldde een fout: {}"
 
@@ -33917,7 +33878,6 @@ msgid "The selected ticket layout been deleted."
 msgstr "De gekozen ticketlay-out is verwijderd."
 
 #: pretix/plugins/ticketoutputpdf/views.py:250
-#, python-brace-format
 msgid "Ticket PDF layout: {}"
 msgstr "PDF-ticketlay-out: {}"
 
@@ -34021,7 +33981,6 @@ msgid "Payment"
 msgstr "Betaling"
 
 #: pretix/presale/checkoutflow.py:1368
-#, python-brace-format
 msgid ""
 "Your payment method has been applied, but {} still need to be paid. Please "
 "select a payment method for the remainder."

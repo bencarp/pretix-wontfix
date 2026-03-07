@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 13:19+0000\n"
+"POT-Creation-Date: 2026-02-28 13:24+0000\n"
 "PO-Revision-Date: 2025-06-11 02:00+0000\n"
 "Last-Translator: Michael Dao <garudong89@gmail.com>\n"
 "Language-Team: Vietnamese <https://translate.pretix.eu/projects/pretix/"
@@ -231,7 +231,6 @@ msgid "Comment"
 msgstr "Bình luận"
 
 #: pretix/api/serializers/cart.py:168 pretix/api/serializers/order.py:1502
-#, python-brace-format
 msgid "The product \"{}\" is not assigned to a quota."
 msgstr "Mặt hàng \"{}\" chưa được chỉ định số hàng tồn."
 
@@ -391,12 +390,10 @@ msgid "The selected seat \"{seat}\" is not available."
 msgstr "Ghế đã chọn \"{seat}\" không còn chỗ."
 
 #: pretix/api/serializers/order.py:1489 pretix/api/serializers/order.py:1496
-#, python-brace-format
 msgid "The product \"{}\" is not available on this date."
 msgstr "Sản phẩm \"{}\" không có sẵn vào ngày này."
 
 #: pretix/api/serializers/order.py:1511 pretix/api/views/cart.py:200
-#, python-brace-format
 msgid ""
 "There is not enough quota available on quota \"{}\" to perform the operation."
 msgstr "Không có đủ hạn ngạch trên hạn ngạch \"{}\" để thực hiện thao tác."
@@ -1194,7 +1191,7 @@ msgid "Ticket link"
 msgstr "Khối vé"
 
 #: pretix/base/datasync/sourcefields.py:578
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Client ID"
 msgid "Check-in datetime on list {}"
 msgstr "ID người dùng"
@@ -6149,7 +6146,6 @@ msgid "Answer"
 msgstr "Trả lời"
 
 #: pretix/base/models/items.py:1985
-#, python-brace-format
 msgid "The identifier \"{}\" is already used for a different option."
 msgstr "Định danh  \"{} \" đã được sử dụng cho một tùy chọn khác."
 
@@ -6792,7 +6788,7 @@ msgid "Your layout file is not a valid JSON file."
 msgstr "Tệp bố cục của bạn không phải là tệp JSON hợp lệ."
 
 #: pretix/base/models/seating.py:55 pretix/base/models/seating.py:79
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Your layout file is not a valid seating plan. Error message: {}"
 msgid "Your layout file is not a valid seating plan. Error message: {}"
 msgstr "Tệp bố cục của bạn không phải là một gói chỗ ngồi hợp lệ."
@@ -6961,7 +6957,7 @@ msgstr ""
 "tịch thu VAT để giảm giá"
 
 #: pretix/base/models/tax.py:315
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Your set of rules is not valid. Error message: {}"
 msgid "Your set of rules is not valid. Error message: {}"
 msgstr "Bộ quy tắc của bạn không hợp lệ."
@@ -8178,7 +8174,7 @@ msgid "Invoice address name: {part}"
 msgstr "Tên địa chỉ hóa đơn: {phần}"
 
 #: pretix/base/pdf.py:1328
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Your layout file is not a valid layout. Error message: {}"
 msgid "Your layout file is not a valid layout. Error message: {}"
 msgstr "Tệp bố cục của bạn không phải là bố cục hợp lệ."
@@ -8811,7 +8807,6 @@ msgid "Attendee: {name}"
 msgstr "Người tham dự: {name}"
 
 #: pretix/base/services/invoices.py:278 pretix/plugins/reports/exporters.py:308
-#, python-brace-format
 msgctxt "subevent"
 msgid "Date: {}"
 msgstr "Ngày: {}"
@@ -8829,7 +8824,6 @@ msgid "012345"
 msgstr ""
 
 #: pretix/base/services/invoices.py:612
-#, python-brace-format
 msgid "Sample product {}"
 msgstr "Sản phẩm mẫu {}"
 
@@ -12006,7 +12000,6 @@ msgid "Length of gift card codes"
 msgstr "chiều dài mã thẻ quà tặng"
 
 #: pretix/base/settings.py:3498
-#, python-brace-format
 msgid ""
 "The system generates by default {}-character long gift card codes. However, "
 "if a different length is required, it can be set here."
@@ -13333,7 +13326,6 @@ msgid "Ask and require input"
 msgstr "Hỏi và yêu cầu đầu vào"
 
 #: pretix/control/forms/event.py:777
-#, python-brace-format
 msgid ""
 "You have configured gift cards to be valid {} years plus the year the gift "
 "card is issued in."
@@ -15308,7 +15300,6 @@ msgid "Do nothing and keep the order as it is."
 msgstr "Không làm gì và giữ trật tự như nó là."
 
 #: pretix/control/forms/orders.py:836
-#, python-brace-format
 msgid "The refund amount needs to be positive and less than {}."
 msgstr "Số tiền hoàn lại cần phải dương và nhỏ hơn {}."
 
@@ -16166,7 +16157,6 @@ msgid ""
 msgstr "Vị trí"
 
 #: pretix/control/logdisplay.py:402
-#, python-brace-format
 msgid "The user confirmed the following message: \"{}\""
 msgstr ""
 
@@ -16641,12 +16631,10 @@ msgid "Your email address {email} has been confirmed."
 msgstr "Địa chỉ email của bạn đã được cập nhật."
 
 #: pretix/control/logdisplay.py:685
-#, python-brace-format
 msgid "You impersonated {}."
 msgstr "Bạn đã mạo danh {}."
 
 #: pretix/control/logdisplay.py:686
-#, python-brace-format
 msgid "You stopped impersonating {}."
 msgstr "Bạn đã ngừng mạo danh {}."
 
@@ -26571,7 +26559,6 @@ msgid ""
 msgstr "Bạn đã sử dụng một liên kết không hợp lệ."
 
 #: pretix/control/views/auth.py:253
-#, python-brace-format
 msgid ""
 "You cannot accept the invitation for \"{}\" as you already are part of this "
 "team."
@@ -26580,12 +26567,11 @@ msgstr ""
 "này."
 
 #: pretix/control/views/auth.py:270
-#, python-brace-format
 msgid "You are now part of the team \"{}\"."
 msgstr "Bây giờ bạn là một phần của nhóm  \"{} \"."
 
 #: pretix/control/views/auth.py:301
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Welcome to pretix! You are now part of the team \"{}\"."
 msgid "Welcome to pretix! You are now part of the team \"{}\"."
 msgstr "Chào mừng bạn đến với Pretix!"
@@ -26865,12 +26851,10 @@ msgid ""
 msgstr "Bạn không có đủ quyền để thực hiện xuất khẩu này."
 
 #: pretix/control/views/event.py:472 pretix/control/views/organizer.py:714
-#, python-brace-format
 msgid "The plugin {} is now active, you can configure it here:"
 msgstr "plugin {} hiện đang hoạt động, bạn có thể định cấu hình nó ở đây:"
 
 #: pretix/control/views/event.py:481 pretix/control/views/organizer.py:723
-#, python-brace-format
 msgid "The plugin {} is now active."
 msgstr "Plugin {} hiện đang hoạt động."
 
@@ -27467,7 +27451,7 @@ msgstr ""
 "hỗ trợ hoàn tiền đầy đủ."
 
 #: pretix/control/views/orders.py:1354
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid ""
 #| "One of the refunds failed to be processed. You should retry to refund in "
 #| "a different way. The error message was: {}"
@@ -27477,12 +27461,10 @@ msgid ""
 msgstr "Một trong những khoản hoàn trả không được xử lý."
 
 #: pretix/control/views/orders.py:1360
-#, python-brace-format
 msgid "A refund of {} has been processed."
 msgstr "Một khoản hoàn trả của {} đã được xử lý."
 
 #: pretix/control/views/orders.py:1364
-#, python-brace-format
 msgid ""
 "A refund of {} has been saved, but not yet fully executed. You can mark it "
 "as complete below."
@@ -27677,12 +27659,10 @@ msgid "Subject: {subject}"
 msgstr "Chủ đề: {chủ đề}"
 
 #: pretix/control/views/orders.py:2448 pretix/control/views/orders.py:2519
-#, python-brace-format
 msgid "Your message has been queued and will be sent to {}."
 msgstr "Tin nhắn của bạn đã được xếp hàng và sẽ được gửi đến {}."
 
 #: pretix/control/views/orders.py:2452 pretix/control/views/orders.py:2522
-#, python-brace-format
 msgid "Failed to send mail to the following user: {}"
 msgstr "Không thể gửi thư cho người dùng sau: {}"
 
@@ -27912,7 +27892,6 @@ msgid "The new member has been added to the team."
 msgstr "Thành viên mới đã được thêm vào nhóm."
 
 #: pretix/control/views/organizer.py:1181
-#, python-brace-format
 msgid ""
 "A new API token has been created with the following secret: {}\n"
 "Please copy this secret to a safe place. You will not be able to view it "
@@ -28137,7 +28116,6 @@ msgid "Please do not create more than 100.000 dates at once."
 msgstr "Vui lòng không tạo hơn 100.000 ngày cùng một lúc."
 
 #: pretix/control/views/subevents.py:1054
-#, python-brace-format
 msgctxt "subevent"
 msgid "{} new dates have been created."
 msgstr "{} Ngày mới đã được tạo."
@@ -28147,12 +28125,10 @@ msgid "Series:"
 msgstr "Sê -ri:"
 
 #: pretix/control/views/typeahead.py:115
-#, python-brace-format
 msgid "Order {}"
 msgstr "Đặt hàng {}"
 
 #: pretix/control/views/typeahead.py:128
-#, python-brace-format
 msgid "Voucher {}"
 msgstr ""
 
@@ -28876,7 +28852,6 @@ msgid "The selected badge layout been deleted."
 msgstr ""
 
 #: pretix/plugins/badges/views.py:217
-#, python-brace-format
 msgid "Badge layout: {}"
 msgstr ""
 
@@ -29844,7 +29819,6 @@ msgstr "Có một lỗi gửi thư xác nhận."
 
 #: pretix/plugins/paypal/payment.py:566 pretix/plugins/paypal/payment.py:573
 #: pretix/plugins/paypal2/payment.py:979 pretix/plugins/paypal2/payment.py:1000
-#, python-brace-format
 msgid "Refunding the amount via PayPal failed: {}"
 msgstr "Hoàn trả số tiền qua PayPal không thành công: {}"
 
@@ -30148,7 +30122,6 @@ msgid "Capture pending."
 msgstr "Chụp đang chờ xử lý."
 
 #: pretix/plugins/paypal2/signals.py:75
-#, python-brace-format
 msgid "PayPal reported an event: {}"
 msgstr "PayPal đã báo cáo một sự kiện: {}"
 
@@ -31821,31 +31794,30 @@ msgid "Payment authorization failed."
 msgstr "ủy quyền thanh toán không thành công."
 
 #: pretix/plugins/stripe/signals.py:105
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Charge failed. Reason: {}"
 msgid "Charge failed. Reason: {}"
 msgstr "Charge không thành công."
 
 #: pretix/plugins/stripe/signals.py:107
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Dispute created. Reason: {}"
 msgid "Dispute created. Reason: {}"
 msgstr "Tranh chấp được tạo ra."
 
 #: pretix/plugins/stripe/signals.py:109
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Dispute updated. Reason: {}"
 msgid "Dispute updated. Reason: {}"
 msgstr "Tranh chấp cập nhật."
 
 #: pretix/plugins/stripe/signals.py:111
-#, fuzzy, python-brace-format
+#, fuzzy
 #| msgid "Dispute closed. Status: {}"
 msgid "Dispute closed. Status: {}"
 msgstr "tranh chấp đóng cửa."
 
 #: pretix/plugins/stripe/signals.py:114
-#, python-brace-format
 msgid "Stripe reported an event: {}"
 msgstr "Stripe báo cáo một sự kiện: {}"
 
@@ -32104,7 +32076,6 @@ msgid "An error occurred during connecting with Stripe, please try again."
 msgstr "Đã xảy ra lỗi trong quá trình kết nối với Stripe, vui lòng thử lại."
 
 #: pretix/plugins/stripe/views.py:157 pretix/plugins/stripe/views.py:159
-#, python-brace-format
 msgid "Stripe returned an error: {}"
 msgstr "sọc trả về một lỗi: {}"
 
@@ -32284,7 +32255,6 @@ msgid "The selected ticket layout been deleted."
 msgstr "Bố cục vé được chọn đã bị xóa."
 
 #: pretix/plugins/ticketoutputpdf/views.py:250
-#, python-brace-format
 msgid "Ticket PDF layout: {}"
 msgstr "Bố cục PDF vé: {}"
 
@@ -32387,7 +32357,6 @@ msgid "Payment"
 msgstr "Thanh toán"
 
 #: pretix/presale/checkoutflow.py:1368
-#, python-brace-format
 msgid ""
 "Your payment method has been applied, but {} still need to be paid. Please "
 "select a payment method for the remainder."
