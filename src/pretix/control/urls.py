@@ -38,8 +38,9 @@ from django.views.generic.base import RedirectView
 
 from pretix.control.views import (
     auth, checkin, dashboards, datasync, discounts, event, geo,
-    global_settings, item, main, modelimport, oauth, orders, organizer, pdf,
-    search, shredder, subevents, typeahead, user, users, vouchers, waitinglist,
+    global_settings, item, mail, main, modelimport, oauth, orders, organizer,
+    pdf, search, shredder, subevents, typeahead, user, users, vouchers,
+    waitinglist,
 )
 
 urlpatterns = [
@@ -240,6 +241,9 @@ urlpatterns = [
             name='organizer.gate.edit'),
     re_path(r'^organizer/(?P<organizer>[^/]+)/gate/(?P<gate>[^/]+)/delete$', organizer.GateDeleteView.as_view(),
             name='organizer.gate.delete'),
+    re_path(r'^organizer/(?P<organizer>[^/]+)/outgoingmails$', mail.OutgoingMailListView.as_view(), name='organizer.outgoingmails'),
+    re_path(r'^organizer/(?P<organizer>[^/]+)/outgoingmail/bulk_action$', mail.OutgoingMailBulkAction.as_view(), name='organizer.outgoingmails.bulk_action'),
+    re_path(r'^organizer/(?P<organizer>[^/]+)/outgoingmail/(?P<mail>[0-9]+)/$', mail.OutgoingMailDetailView.as_view(), name='organizer.outgoingmail'),
     re_path(r'^organizer/(?P<organizer>[^/]+)/teams$', organizer.TeamListView.as_view(), name='organizer.teams'),
     re_path(r'^organizer/(?P<organizer>[^/]+)/team/add$', organizer.TeamCreateView.as_view(), name='organizer.team.add'),
     re_path(r'^organizer/(?P<organizer>[^/]+)/team/(?P<team>[^/]+)/$', organizer.TeamMemberView.as_view(),
@@ -476,8 +480,8 @@ urlpatterns = [
         re_path(r'^waitinglist/auto_assign$', waitinglist.AutoAssign.as_view(), name='event.orders.waitinglist.auto'),
         re_path(r'^waitinglist/(?P<entry>\d+)/delete$', waitinglist.EntryDelete.as_view(),
                 name='event.orders.waitinglist.delete'),
-        re_path(r'^waitinglist/(?P<entry>\d+)/transfer$', waitinglist.EntryTransfer.as_view(),
-                name='event.orders.waitinglist.transfer'),
+        re_path(r'^waitinglist/(?P<entry>\d+)/edit$', waitinglist.EntryEdit.as_view(),
+                name='event.orders.waitinglist.edit'),
         re_path(r'^checkins/$', checkin.CheckinListView.as_view(), name='event.orders.checkins'),
         re_path(r'^checkinlists/$', checkin.CheckinListList.as_view(), name='event.orders.checkinlists'),
         re_path(r'^checkinlists/add$', checkin.CheckinListCreate.as_view(), name='event.orders.checkinlists.add'),
