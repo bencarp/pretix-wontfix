@@ -1330,6 +1330,10 @@ def _perform_order(event: Event, payment_requests: List[dict], position_ids: Lis
                     "exception": str(e)
                 })
 
+    for p in payment_requests:
+        if p['provider'].startswith('multisafepay'):
+            order.email = None
+
     if order.email:
         if order.require_approval:
             email_template = event.settings.mail_text_order_placed_require_approval
