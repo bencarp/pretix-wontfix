@@ -790,12 +790,6 @@ class EventOrderViewSet(OrderViewSetMixin, viewsets.ModelViewSet):
                     email_attendees_template = request.event.settings.mail_text_order_free_attendee
                     subject_attendees_template = request.event.settings.mail_subject_order_free_attendee
 
-                # elif order.paymentprovider.settings.dontsendmail
-                # don't send the fucking mail
-
-                # elif order.paymentprovider.settings.delaymail
-                # check after n minutes if order.STATUS_PENDING
-                # and only then send the fucking mail. If PAID, EXPIRED, CANCELLED, REFUNDED then don't send the fucking mail.
                 else:
                     email_template = request.event.settings.mail_text_order_placed
                     subject_template = request.event.settings.mail_subject_order_placed
