@@ -138,7 +138,7 @@ class OrderDetailMixin(NoSearchIndexViewMixin):
                 code=self.kwargs['order'], received_secret=self.kwargs['secret'], tag=None,
             )
 
-            if has_event_access_permission(self.request, 'can_view_orders'):
+            if has_event_access_permission(self.request, 'event.orders:read'):
                 return order
 
             if order.customer is None or not order.customer.is_verified or self._allow_anonymous_access():
@@ -255,7 +255,7 @@ class TicketPageMixin:
 
         ctx['download_buttons'] = self.download_buttons
 
-        ctx['backend_user'] = has_event_access_permission(self.request, 'can_view_orders')
+        ctx['backend_user'] = has_event_access_permission(self.request, 'event.orders:read')
 
         return ctx
 
@@ -908,6 +908,21 @@ class OrderModify(EventViewMixin, OrderDetailMixin, OrderQuestionsViewMixin, Tem
 
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(
+            **kwargs,
+        )
+
+        ctx['invoice_generation_selfservice'] = (
+            self.request.event.settings.invoice_reissue_after_modify or
+            (
+                can_generate_invoice(self.request.event, self.order, ignore_payments=True) and
+                not self.order.invoices.exists()
+            )
+        )
+
+        return ctx
 
     def dispatch(self, request, *args, **kwargs):
         self.request = request

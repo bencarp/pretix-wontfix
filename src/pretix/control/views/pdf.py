@@ -58,7 +58,7 @@ logger = logging.getLogger(__name__)
 
 class BaseEditorView(EventPermissionRequiredMixin, TemplateView):
     template_name = 'pretixcontrol/pdf/index.html'
-    permission = 'can_change_settings'
+    permission = 'event.settings.general:write'
     accepted_formats = (
         'application/pdf',
     )
@@ -292,6 +292,7 @@ class BaseEditorView(EventPermissionRequiredMixin, TemplateView):
         ctx['layout'] = json.dumps(self.get_current_layout())
         ctx['title'] = self.title
         ctx['locales'] = [p for p in settings.LANGUAGES if p[0] in self.request.event.settings.locales]
+        ctx['maxfilesize'] = self.maxfilesize
         return ctx
 
 

@@ -271,7 +271,7 @@ class OrderListExporter(MultiSheetListExporter):
 
         qs = self._date_filter(qs, form_data, rel='')
 
-        if form_data['paid_only']:
+        if form_data.get('paid_only'):
             qs = qs.filter(status=Order.STATUS_PAID)
         return qs
 
@@ -315,8 +315,9 @@ class OrderListExporter(MultiSheetListExporter):
             for id, vn in payment_methods:
                 headers.append(_('Paid by {method}').format(method=vn))
 
-        # get meta_data labels from first cached event
-        headers += next(iter(self.event_object_cache.values())).meta_data.keys()
+        if self.event_object_cache:
+            # get meta_data labels from first cached event if any
+            headers += next(iter(self.event_object_cache.values())).meta_data.keys()
         yield headers
 
         full_fee_sum_cache = {
@@ -457,7 +458,7 @@ class OrderListExporter(MultiSheetListExporter):
         ).annotate(
             payment_providers=Subquery(p_providers, output_field=CharField()),
         ).select_related('order', 'order__invoice_address', 'order__customer', 'tax_rule')
-        if form_data['paid_only']:
+        if form_data.get('paid_only'):
             qs = qs.filter(order__status=Order.STATUS_PAID, canceled=False)
 
         if form_data.get('items'):
@@ -503,8 +504,9 @@ class OrderListExporter(MultiSheetListExporter):
         headers.append(_('External customer ID'))
         headers.append(_('Payment providers'))
 
-        # get meta_data labels from first cached event
-        headers += next(iter(self.event_object_cache.values())).meta_data.keys()
+        if self.event_object_cache:
+            # get meta_data labels from first cached event if any
+            headers += next(iter(self.event_object_cache.values())).meta_data.keys()
         yield headers
 
         yield self.ProgressSetTotal(total=qs.count())
@@ -560,7 +562,7 @@ class OrderListExporter(MultiSheetListExporter):
         qs = OrderPosition.all.filter(
             order__event__in=self.events,
         )
-        if form_data['paid_only']:
+        if form_data.get('paid_only'):
             qs = qs.filter(order__status=Order.STATUS_PAID, canceled=False)
 
         if form_data.get('items'):
@@ -707,9 +709,9 @@ class OrderListExporter(MultiSheetListExporter):
             _('Position order link')
         ]
 
-        # get meta_data labels from first cached event
-        meta_data_labels = next(iter(self.event_object_cache.values())).meta_data.keys()
         if has_subevents:
+            # get meta_data labels from first cached event
+            meta_data_labels = next(iter(self.event_object_cache.values())).meta_data.keys()
             headers += meta_data_labels
         yield headers
 
@@ -1237,10 +1239,13 @@ class QuotaListExporter(ListExporter):
 class GiftcardTransactionListExporter(OrganizerLevelExportMixin, ListExporter):
     identifier = 'giftcardtransactionlist'
     verbose_name = gettext_lazy('Gift card transactions')
-    organizer_required_permission = 'can_manage_gift_cards'
     category = pgettext_lazy('export_category', 'Gift cards')
     description = gettext_lazy('Download a spreadsheet of all gift card transactions.')
     repeatable_read = False
+
+    @classmethod
+    def get_required_organizer_permission(cls) -> str:
+        return 'organizer.giftcards:read'
 
     @property
     def additional_form_fields(self):
@@ -1344,9 +1349,12 @@ class GiftcardRedemptionListExporter(ListExporter):
 class GiftcardListExporter(OrganizerLevelExportMixin, ListExporter):
     identifier = 'giftcardlist'
     verbose_name = gettext_lazy('Gift cards')
-    organizer_required_permission = 'can_manage_gift_cards'
     category = pgettext_lazy('export_category', 'Gift cards')
     description = gettext_lazy('Download a spreadsheet of all gift cards including their current value.')
+
+    @classmethod
+    def get_required_organizer_permission(cls) -> str:
+        return 'organizer.giftcards:read'
 
     @property
     def additional_form_fields(self):
