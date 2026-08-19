@@ -110,8 +110,17 @@ var setCookie = function (cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    if (!cvalue) {
+        var expires = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        cvalue = "";
+    }
+    var same_site = "";
+    if (site_is_secure()) {
+        same_site = ";SameSite=None;Secure"
+    }
+    document.cookie = cname + "=" + cvalue + ";" + expires + same_site + ";path=/";
 };
+
 var getCookie = function (name) {
     var value = "; " + document.cookie;
     var parts = value.split("; " + name + "=");
@@ -253,7 +262,7 @@ Vue.component('availbox', {
     },
     mounted: function() {
         if (!this.$root.cart_exists && this.$root.itemnum === 1 && (!this.$root.categories[0].items[0].has_variations || this.$root.categories[0].items[0].variations.length < 2) && !this.$root.has_seating_plan ? 1 : 0) {
-            this.$refs.quantity.value = 1;    
+            this.$refs.quantity.value = 1;
             if (this.order_max === 1) {
                 this.$refs.quantity.checked = true;
             }
@@ -301,7 +310,7 @@ Vue.component('availbox', {
             return this.avail[0] < 100 && this.$root.waiting_list_enabled && this.item.allow_waitinglist;
         },
         waiting_list_url: function () {
-            var u = this.$root.target_url + 'w/' + widget_id + '/waitinglist/?locale=' + lang + '&item=' + this.item.id 
+            var u = this.$root.target_url + 'w/' + widget_id + '/waitinglist/?locale=' + lang + '&item=' + this.item.id
             if (this.item.has_variations) {
                 u += '&var=' + this.variation.id
             }
@@ -336,7 +345,7 @@ Vue.component('pricebox', {
         + '       :min="display_price_nonlocalized" :value="suggested_price_nonlocalized" :name="field_name"'
         + '       step="any" v-bind:aria-labelledby="aria_labelledby" v-bind:aria-describedby="price_desc_id">'
         + '</div>'
-        + '<small class="pretix-widget-pricebox-tax" :id="price_desc_id" v-if="price.rate != \'0.00\' && price.gross != \'0.00\'">'
+        + '<small class="pretix-widget-pricebox-tax" :id="price_desc_id" v-if="price.rate != \'0\' && price.gross != \'0.00\'">'
         + '{{ taxline }}'
         + '</small>'
         + '</div>'),
@@ -371,16 +380,16 @@ Vue.component('pricebox', {
         },
         display_price: function () {
             if (this.$root.display_net_prices) {
-                return floatformat(parseFloat(this.price.net), 2);
+                return floatformat(this.price.net, this.$root.currency_places);
             } else {
-                return floatformat(parseFloat(this.price.gross), 2);
+                return floatformat(this.price.gross, this.$root.currency_places);
             }
         },
         display_price_nonlocalized: function () {
             if (this.$root.display_net_prices) {
-                return parseFloat(this.price.net).toFixed(2);
+                return parseFloat(this.price.net).toFixed(this.$root.currency_places);
             } else {
-                return parseFloat(this.price.gross).toFixed(2);
+                return parseFloat(this.price.gross).toFixed(this.$root.currency_places);
             }
         },
         suggested_price_nonlocalized: function () {
@@ -389,9 +398,9 @@ Vue.component('pricebox', {
                 price = this.price;
             }
             if (this.$root.display_net_prices) {
-                return parseFloat(price.net).toFixed(2);
+                return parseFloat(price.net).toFixed(this.$root.currency_places);
             } else {
-                return parseFloat(price.gross).toFixed(2);
+                return parseFloat(price.gross).toFixed(this.$root.currency_places);
             }
         },
         original_price_aria_label: function () {
@@ -401,7 +410,7 @@ Vue.component('pricebox', {
             return django.interpolate(strings.new_price, [this.stripHTML(this.priceline)]);
         },
         original_line: function () {
-            return '<span class="pretix-widget-pricebox-currency">' + this.$root.currency + "</span> " + floatformat(parseFloat(this.original_price), 2);
+            return '<span class="pretix-widget-pricebox-currency">' + this.$root.currency + "</span> " + floatformat(this.original_price, this.$root.currency_places);
         },
         priceline: function () {
             if (this.price.gross === "0.00") {
@@ -525,7 +534,7 @@ Vue.component('item', {
         + '<div :id="item_price_id" class="pretix-widget-item-price-col">'
         + '<pricebox :price="item.price" :free_price="item.free_price" v-if="!item.has_variations && $root.showPrices"'
         + '          :mandatory_priced_addons="item.mandatory_priced_addons" :suggested_price="item.suggested_price"'
-        + '          :field_name="\'price_\' + item.id" :original_price="item.original_price">'
+        + '          :field_name="\'price_\' + item.id" :original_price="item.original_price" :item_id="item.id">'
         + '</pricebox>'
         + '<div class="pretix-widget-pricebox" v-if="item.has_variations && $root.showPrices" v-html="pricerange"></div>'
         + '<span v-if="!$root.showPrices">&nbsp;</span>'
@@ -636,19 +645,19 @@ Vue.component('item', {
             if (this.item.free_price) {
                 return django.interpolate(strings.price_from, {
                     'currency': this.$root.currency,
-                    'price': floatformat(this.item.min_price, 2)
+                    'price': floatformat(this.item.min_price, this.$root.currency_places)
                 }, true).replace(this.$root.currency, '<span class="pretix-widget-pricebox-currency">' + this.$root.currency + '</span>');
             } else if (this.item.min_price !== this.item.max_price) {
-                return '<span class="pretix-widget-pricebox-currency">' + this.$root.currency + "</span> " 
-                    + floatformat(this.item.min_price, 2) + " – "
-                    + floatformat(this.item.max_price, 2);
+                return '<span class="pretix-widget-pricebox-currency">' + this.$root.currency + "</span> "
+                    + floatformat(this.item.min_price, this.$root.currency_places) + " – "
+                    + floatformat(this.item.max_price, this.$root.currency_places);
             } else if (this.item.min_price === "0.00" && this.item.max_price === "0.00") {
                 if (this.item.mandatory_priced_addons) {
                     return "\xA0"; // nbsp, because an empty string would cause the HTML element to collapse
                 }
                 return strings.free;
             } else {
-                return '<span class="pretix-widget-pricebox-currency">' + this.$root.currency + "</span> " + floatformat(this.item.min_price, 2);
+                return '<span class="pretix-widget-pricebox-currency">' + this.$root.currency + "</span> " + floatformat(this.item.min_price, this.$root.currency_places);
             }
         },
         variationsToggleLabel: function () {
@@ -726,17 +735,16 @@ var shared_methods = {
     buy_callback: function (data) {
         if (data.redirect) {
             if (data.cart_id) {
-                this.$root.cart_id = data.cart_id;
-                setCookie(this.$root.cookieName, data.cart_id, 30);
+                this.$root.set_cart_id(data.cart_id);
             }
             if (data.redirect.substr(0, 1) === '/') {
                 data.redirect = this.$root.target_url.replace(/^([^\/]+:\/\/[^\/]+)\/.*$/, "$1") + data.redirect;
             }
             var url = data.redirect;
             if (url.indexOf('?')) {
-                url = url + '&iframe=1&locale=' + lang + '&take_cart_id=' + this.$root.cart_id;
+                url = url + '&iframe=1&locale=' + lang + '&take_cart_id=' + encodeURIComponent(this.$root.get_cart_id());
             } else {
-                url = url + '?iframe=1&locale=' + lang + '&take_cart_id=' + this.$root.cart_id;
+                url = url + '?iframe=1&locale=' + lang + '&take_cart_id=' + encodeURIComponent(this.$root.get_cart_id());
             }
             url += this.$root.consent_parameter;
             if (this.$root.additionalURLParams) {
@@ -779,15 +787,24 @@ var shared_methods = {
         }
     },
     resume: function () {
+        if (!this.$root.get_cart_id() && this.$root.keep_cart) {
+            // create an empty cart whose id we can persist
+            this.$root.create_cart(this.resume)
+            return;
+        }
         var redirect_url;
         redirect_url = this.$root.target_url + 'w/' + widget_id + '/';
-        if (this.$root.subevent && !this.$root.cart_id) {
+        if (this.$root.subevent && this.$root.is_button && this.$root.items.length === 0) {
             // button with subevent but no items
             redirect_url += this.$root.subevent + '/';
         }
         redirect_url += '?iframe=1&locale=' + lang;
-        if (this.$root.cart_id) {
-            redirect_url += '&take_cart_id=' + this.$root.cart_id;
+        if (this.$root.get_cart_id()) {
+            redirect_url += '&take_cart_id=' + encodeURIComponent(this.$root.get_cart_id());
+            if (this.$root.keep_cart) {
+                // make sure the cart-id is used, even if the cart is currently empty
+                redirect_url += '&ajax=1'
+            }
         }
         if (this.$root.widget_data) {
             redirect_url += '&widget_data=' + encodeURIComponent(this.$root.widget_data_json);
@@ -846,7 +863,7 @@ var shared_alert_fragment = (
     '<dialog :class="alertClasses" role="alertdialog" v-bind:aria-labelledby="$root.parent.html_id + \'-error-message\'" @close="errorClose">'
     + '<form class="pretix-widget-alert-box" method="dialog">'
     + '<p :id="$root.parent.html_id + \'-error-message\'">{{ $root.error_message }}</p>'
-    + '<p><button v-if="$root.error_url_after" value="continue" autofocus v-bind:aria-describedby="$root.parent.html_id + \'-error-message\'">' + strings.continue + '</button>'
+    + '<p><button v-if="$root.error_url_after" @click="errorContinue" autofocus v-bind:aria-describedby="$root.parent.html_id + \'-error-message\'">' + strings.continue + '</button>'
     + '<button v-else autofocus v-bind:aria-describedby="$root.parent.html_id + \'-error-message\'">' + strings.close + '</button></p>'
     + '</form>'
     + '<transition name="bounce">'
@@ -935,7 +952,7 @@ Vue.component('pretix-overlay', {
         cancelBlockedClasses: function () {
             return {
                 'pretix-widget-visibility-hidden': !this.cancelBlocked,
-            }  
+            }
         },
     },
     mounted () {
@@ -957,18 +974,17 @@ Vue.component('pretix-overlay', {
             this.$root.lightbox.loading = false;
         },
         errorClose: function (e) {
-            var dialog = e.target;
-            if (dialog.returnValue == "continue" && this.$root.error_url_after) {
-                if (this.$root.error_url_after_new_tab) {
-                    window.open(this.$root.error_url_after);
-                } else if (this.$root.overlay) {
-                    this.$root.overlay.frame_src = this.$root.error_url_after;
-                    this.$root.frame_loading = true;
-                }
-            }
             this.$root.error_message = null;
             this.$root.error_url_after = null;
             this.$root.error_url_after_new_tab = false;
+        },
+        errorContinue: function () {
+            if (this.$root.error_url_after_new_tab) {
+                window.open(this.$root.error_url_after);
+            } else if (this.$root.overlay) {
+                this.$root.overlay.frame_src = this.$root.error_url_after;
+                this.$root.frame_loading = true;
+            }
         },
         close: function (e) {
             if (this.$root.frame_loading) {
@@ -1864,12 +1880,11 @@ var shared_root_methods = {
         if (this.$root.variation_filter) {
             url += '&variations=' + encodeURIComponent(this.$root.variation_filter);
         }
-        var cart_id = getCookie(this.cookieName);
         if (this.$root.voucher_code) {
             url += '&voucher=' + encodeURIComponent(this.$root.voucher_code);
         }
-        if (cart_id) {
-            url += "&cart_id=" + encodeURIComponent(cart_id);
+        if (this.$root.get_cart_id()) {
+            url += "&cart_id=" + encodeURIComponent(this.$root.get_cart_id());
         }
         if (this.$root.date !== null) {
             url += "&date=" + this.$root.date.substr(0, 7);
@@ -1933,13 +1948,13 @@ var shared_root_methods = {
                 root.location = data.location;
                 root.categories = data.items_by_category;
                 root.currency = data.currency;
+                root.currency_places = data.currency_places;
                 root.display_net_prices = data.display_net_prices;
                 root.voucher_explanation_text = data.voucher_explanation_text;
                 root.error = data.error;
                 root.display_add_to_cart = data.display_add_to_cart;
                 root.waiting_list_enabled = data.waiting_list_enabled;
                 root.show_variations_expanded = data.show_variations_expanded || !!root.variation_filter;
-                root.cart_id = cart_id;
                 root.cart_exists = data.cart_exists;
                 root.vouchers_exist = data.vouchers_exist;
                 root.has_seating_plan = data.has_seating_plan;
@@ -1968,6 +1983,7 @@ var shared_root_methods = {
         }, function (error) {
             root.categories = [];
             root.currency = '';
+            root.currency_places = 2;
             if (error.status === 429) {
                 root.error = strings['loading_error_429'];
                 root.connection_error = true;
@@ -2004,8 +2020,8 @@ var shared_root_methods = {
         if (this.$root.voucher_code) {
             redirect_url += '&voucher=' + encodeURIComponent(this.$root.voucher_code);
         }
-        if (this.$root.cart_id) {
-            redirect_url += '&take_cart_id=' + this.$root.cart_id;
+        if (this.$root.get_cart_id()) {
+            redirect_url += '&take_cart_id=' + encodeURIComponent(this.$root.get_cart_id());
         }
         if (this.$root.widget_data) {
             redirect_url += '&widget_data=' + encodeURIComponent(this.$root.widget_data_json);
@@ -2027,7 +2043,40 @@ var shared_root_methods = {
         this.$root.subevent = event.subevent;
         this.$root.loading++;
         this.$root.reload();
-    }
+    },
+    create_cart: function(callback) {
+        var url = this.$root.target_url + 'w/' + widget_id + '/cart/create?ajax=1';
+
+        this.$root.overlay.frame_loading = true;
+        api._getJSON(url, (data) => {
+            this.$root.set_cart_id(data.cart_id);
+            this.$root.overlay.frame_loading = false;
+            callback()
+        }, (xhr, data) => {
+          if (xhr.status === 429 && typeof xhr.responseURL !== "undefined") {
+            this.$root.overlay.error_message = strings['cart_error_429'];
+            this.$root.overlay.frame_loading = false;
+            this.$root.overlay.error_url_after = this.$root.newTabTarget;
+            this.$root.overlay.error_url_after_new_tab = true;
+          } else {
+            this.$root.overlay.error_message = strings['cart_error'];
+            this.$root.overlay.frame_loading = false;
+          }
+        })
+    },
+    get_cart_id: function() {
+        if (!this.$root.keep_cart) {
+            return null
+        }
+        if (this.$root.cart_id) {
+            return this.$root.cart_id
+        }
+        return getCookie(this.$root.cookieName);
+    },
+    set_cart_id: function(newValue) {
+        this.$root.cart_id = newValue
+        setCookie(this.$root.cookieName, newValue, 30);
+    },
 };
 
 var shared_root_computed = {
@@ -2049,9 +2098,8 @@ var shared_root_computed = {
     },
     voucherFormTarget: function () {
         var form_target = this.target_url + 'w/' + widget_id + '/redeem?iframe=1&locale=' + lang;
-        var cookie = getCookie(this.cookieName);
-        if (cookie) {
-            form_target += "&take_cart_id=" + cookie;
+        if (this.get_cart_id()) {
+            form_target += "&take_cart_id=" + encodeURIComponent(this.get_cart_id());
         }
         if (this.subevent) {
             form_target += "&subevent=" + this.subevent;
@@ -2091,9 +2139,8 @@ var shared_root_computed = {
             checkout_url += '?' + this.$root.additionalURLParams;
         }
         var form_target = this.target_url + 'w/' + widget_id + '/cart/add?iframe=1&next=' + encodeURIComponent(checkout_url);
-        var cookie = getCookie(this.cookieName);
-        if (cookie) {
-            form_target += "&take_cart_id=" + cookie;
+        if (this.get_cart_id()) {
+            form_target += "&take_cart_id=" + encodeURIComponent(this.get_cart_id());
         }
         form_target += this.$root.consent_parameter
         return form_target
@@ -2103,7 +2150,14 @@ var shared_root_computed = {
         if (this.subevent) {
             target = this.target_url + this.subevent + '/';
         }
-        return target;
+        var parameters = this.$root.consent_parameter
+        if (this.$root.additionalURLParams) {
+          parameters += `&${this.$root.additionalURLParams}`
+        }
+        if (parameters) {
+          target += '?' + parameters.replace(/^&/, '')
+        }
+        return target
     },
     useIframe: function () {
         if (window.crossOriginIsolated === true) {
@@ -2286,6 +2340,7 @@ var create_widget = function (element, html_id=null) {
                 is_button: false,
                 categories: null,
                 currency: null,
+                currency_places: 2,
                 name: null,
                 date_range: null,
                 location: null,
@@ -2329,6 +2384,8 @@ var create_widget = function (element, html_id=null) {
                 has_seating_plan: false,
                 has_seating_plan_waitinglist: false,
                 meta_filter_fields: [],
+                keep_cart: true,
+                cart_id: null
             }
         },
         created: function () {
@@ -2366,6 +2423,7 @@ var create_button = function (element, html_id=null) {
     var raw_items = element.attributes.items ? element.attributes.items.value : "";
     var skip_ssl = element.attributes["skip-ssl-check"] ? true : false;
     var disable_iframe = element.attributes["disable-iframe"] ? true : false;
+    var keep_cart = element.attributes["keep-cart"] ? true : false;
     var button_text = element.innerHTML;
     var widget_data = JSON.parse(JSON.stringify(window.PretixWidget.widget_data));
     for (var i = 0; i < element.attributes.length; i++) {
@@ -2417,7 +2475,9 @@ var create_button = function (element, html_id=null) {
                 widget_data: widget_data,
                 widget_id: 'pretix-widget-' + widget_id,
                 html_id: html_id,
-                button_text: button_text
+                button_text: button_text,
+                keep_cart: keep_cart || items.length > 0,
+                cart_id: null
             }
         },
         created: function () {
@@ -2426,7 +2486,7 @@ var create_button = function (element, html_id=null) {
             observer.observe(this.$el, observerOptions);
         },
         computed: shared_root_computed,
-        methods: shared_root_methods
+        methods: shared_root_methods,
     });
     create_overlay(app);
     return app;
@@ -2492,13 +2552,15 @@ window.PretixWidget.open = function (target_url, voucher, subevent, items, widge
                 frame_dismissed: false,
                 widget_data: all_widget_data,
                 widget_id: 'pretix-widget-' + widget_id,
-                button_text: ""
+                button_text: "",
+                keep_cart: true,
+                cart_id: null
             }
         },
         created: function () {
         },
         computed: shared_root_computed,
-        methods: shared_root_methods
+        methods: shared_root_methods,
     });
     create_overlay(app);
     app.$nextTick(function () {

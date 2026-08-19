@@ -70,7 +70,6 @@ class BaseEditorView(EventPermissionRequiredMixin, TemplateView):
         if 'placeholders' in request.GET:
             return self.get_placeholders_help(request)
         resp = super().get(request, *args, **kwargs)
-        resp._csp_ignore = True
         return resp
 
     def get_placeholders_help(self, request):
@@ -263,12 +262,7 @@ class BaseEditorView(EventPermissionRequiredMixin, TemplateView):
 
             resp = HttpResponse(data, content_type=mimet)
             ftype = fname.split(".")[-1]
-            if settings.DEBUG:
-                # attachment is more secure as we're dealing with user-generated stuff here, but inline is much more convenient during debugging
-                resp['Content-Disposition'] = 'inline; filename="ticket-preview.{}"'.format(ftype)
-                resp._csp_ignore = True
-            else:
-                resp['Content-Disposition'] = 'attachment; filename="ticket-preview.{}"'.format(ftype)
+            resp['Content-Disposition'] = 'inline; filename="ticket-preview.{}"'.format(ftype)
             return resp
         elif "data" in request.POST:
             if cf:
@@ -289,7 +283,7 @@ class BaseEditorView(EventPermissionRequiredMixin, TemplateView):
         ctx['pdf'] = self.get_current_background()
         ctx['variables'] = self.get_variables()
         ctx['images'] = self.get_images()
-        ctx['layout'] = json.dumps(self.get_current_layout())
+        ctx['layout'] = self.get_current_layout()
         ctx['title'] = self.title
         ctx['locales'] = [p for p in settings.LANGUAGES if p[0] in self.request.event.settings.locales]
         ctx['maxfilesize'] = self.maxfilesize
@@ -309,6 +303,5 @@ class FontsCSSView(TemplateView):
 class PdfView(TemplateView):
     def get(self, request, *args, **kwargs):
         cf = get_object_or_404(CachedFile, id=kwargs.get("filename"), filename="background_preview.pdf")
-        resp = FileResponse(cf.file, content_type='application/pdf')
-        resp['Content-Disposition'] = 'attachment; filename="{}"'.format(cf.filename)
+        resp = FileResponse(cf.file, filename=cf.filename, content_type='application/pdf')
         return resp
